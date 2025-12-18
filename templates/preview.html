@@ -1,0 +1,49 @@
+<link rel="stylesheet" href="/static/css/style.css">
+
+<div class="page-center">
+    <div class="container">
+
+        <h1>Confirm Book Details</h1>
+
+        <div class="card">
+
+            <form method="POST" action="/confirm">
+
+                <input
+                    name="title"
+                    placeholder="Book title"
+                    value="{{ title or '' }}"
+                    required
+                >
+
+                <input
+                    name="author"
+                    placeholder="Author name"
+                    value="{{ author or '' }}"
+                    required
+                >
+
+                <input
+                    name="genre"
+                    placeholder="Genre"
+                    value="{{ genre or '' }}"
+                    readonly
+                >
+
+                <input
+                    name="location"
+                    placeholder="Location"
+                    value="{{ location or '' }}"
+                    required
+                >
+
+                <button class="btn btn-primary">
+                    Confirm & Save
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+</div>

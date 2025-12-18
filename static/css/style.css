@@ -1,0 +1,179 @@
+:root {
+    --bg: #f6f5f3;
+    --card: #ffffff;
+    --border: #e6e4df;
+
+    --text-main: #2b2b2b;
+    --text-muted: #6b6b6b;
+
+    --primary: #c7b9ff;
+    --primary-hover: #b8a8ff;
+
+    --accent-text: #5b4db7;
+    --danger: #f08a8a;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
+    background-color: var(--bg);
+    color: var(--text-main);
+    min-height: 100vh;
+}
+
+/* ===== CENTER LAYOUT ===== */
+
+.page-center {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 520px;
+    padding: 32px;
+}
+
+/* ===== HEADINGS ===== */
+
+h1 {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+/* ===== BUTTONS ===== */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 16px;
+    border-radius: 16px;
+    border: none;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.15s ease;
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    color: var(--accent-text);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+}
+
+/* ===== CARD ===== */
+
+.card {
+    background-color: var(--card);
+    border-radius: 24px;
+    padding: 28px;
+    border: 1px solid var(--border);
+}
+
+/* ===== FORM ===== */
+
+form {
+    display: grid;
+    gap: 14px;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    font-size: 14px;
+    background-color: #fafafa;
+}
+
+input::placeholder {
+    color: var(--text-muted);
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+/* ===== CAMERA UPLOAD ===== */
+
+.upload-box {
+    margin-top: 8px;
+    padding: 16px;
+    border-radius: 16px;
+    border: 2px dashed var(--border);
+    text-align: center;
+    color: var(--text-muted);
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.upload-box:hover {
+    border-color: var(--primary);
+    color: var(--accent-text);
+}
+
+/* ===== SEARCH ===== */
+
+.search {
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    margin-bottom: 20px;
+}
+
+/* ===== TABLE ===== */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--card);
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+}
+
+th {
+    padding: 14px 16px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    background-color: #fafafa;
+}
+
+td {
+    padding: 16px;
+    border-top: 1px solid var(--border);
+}
+
+tr:hover {
+    background-color: #f9f8f6;
+}
+
+.delete {
+    color: var(--danger);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.delete:hover {
+    text-decoration: underline;
+}

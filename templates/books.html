@@ -1,0 +1,83 @@
+<link rel="stylesheet" href="/static/css/style.css">
+
+<div class="page-center">
+    <div class="container">
+
+        <h1>Your Library</h1>
+
+        <!-- ACTION BUTTONS -->
+        <div style="display:flex; gap:12px; margin-bottom:16px;">
+            <a href="/add" class="btn btn-primary" style="flex:1;">
+                ← Back
+            </a>
+
+            <button class="btn btn-primary" style="flex:1;" onclick="toggleSort()">
+                Sort by Title <span id="sortIndicator">↑</span>
+            </button>
+        </div>
+
+        <!-- SEARCH -->
+        <input
+            class="search"
+            type="text"
+            id="search"
+            placeholder="Search by title…"
+            onkeyup="searchBooks()"
+        >
+
+        <!-- TABLE -->
+        <table id="booksTable">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Genre</th>
+                    <th>Location</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for b in books %}
+                <tr>
+                    <td>{{ b[1] }}</td>
+                    <td>{{ b[2] }}</td>
+                    <td>{{ b[3] }}</td>
+                    <td>{{ b[4] }}</td>
+                    <td>
+                        <a class="delete" href="/delete/{{ b[0] }}">Remove</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
+<script>
+let ascending = true;
+
+function searchBooks() {
+    const q = document.getElementById("search").value.toLowerCase();
+    document.querySelectorAll("#booksTable tbody tr").forEach(row => {
+        const title = row.cells[0].innerText.toLowerCase();
+        row.style.display = title.includes(q) ? "" : "none";
+    });
+}
+
+function toggleSort() {
+    const tbody = document.querySelector("#booksTable tbody");
+    const rows = Array.from(tbody.querySelectorAll("tr"));
+
+    rows.sort((a, b) => {
+        const t1 = a.cells[0].innerText.toLowerCase();
+        const t2 = b.cells[0].innerText.toLowerCase();
+        return ascending ? t1.localeCompare(t2) : t2.localeCompare(t1);
+    });
+
+    ascending = !ascending;
+    document.getElementById("sortIndicator").innerText = ascending ? "↑" : "↓";
+
+    rows.forEach(row => tbody.appendChild(row));
+}
+</script>
