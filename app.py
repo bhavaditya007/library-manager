@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request, redirect, abort
 import sqlite3
 import pytesseract
-import cv2
 import os
 import re
 import requests
@@ -17,12 +16,11 @@ def allowed_file(filename):
     return "." in filename and filename.rsplit(".", 1)[1].lower() in ALLOWED_EXTENSIONS
 
 def ocr_lines(image_path):
-    img = cv2.imread(image_path)
-    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-    gray = cv2.bilateralFilter(gray, 9, 75, 75)
-    _, thresh = cv2.threshold(gray, 150, 255, cv2.THRESH_BINARY)
-    text = pytesseract.image_to_string(thresh)
-    return [l.strip() for l in text.split("\n") if l.strip()]
+    try:
+        text = pytesseract.image_to_string(image_path)
+        return [l.strip() for l in text.split("\n") if l.strip()]
+    except Exception:
+        return []
 
 def extract_isbn(lines):
     isbn_regex = re.compile(r"(97[89]\d{10}|\d{9}[\dX])")
