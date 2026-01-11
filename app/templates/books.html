@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Library</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="page-center">
+        <div class="container">
+            <h1>Your Library</h1>
+
+            <div class="actions">
+                <a href="/add" class="btn btn-primary">Add Book</a>
+            </div>
+
+            {% if books %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Genre</th>
+                        <th>Location</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for b in books %}
+                    <tr>
+                        <td>{{ b["title"] }}</td>
+                        <td>{{ b["author"] }}</td>
+                        <td>{{ b["genre"] }}</td>
+                        <td>{{ b["location"] }}</td>
+                        <td>
+                            <form method="POST" action="/delete/{{ b['id'] }}">
+                                <button class="btn btn-danger">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+                <div class="card empty">
+                    No books added yet
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

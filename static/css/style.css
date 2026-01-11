@@ -1,16 +1,14 @@
 :root {
-    --bg: #f6f5f3;
+    --bg: #f6f7fb;
     --card: #ffffff;
-    --border: #e6e4df;
+    --border: #e5e7eb;
 
-    --text-main: #2b2b2b;
-    --text-muted: #6b6b6b;
+    --text-main: #111827;
+    --text-muted: #6b7280;
 
-    --primary: #c7b9ff;
-    --primary-hover: #b8a8ff;
-
-    --accent-text: #5b4db7;
-    --danger: #f08a8a;
+    --primary: #6366f1;
+    --primary-hover: #4f46e5;
+    --danger: #ef4444;
 }
 
 * {
@@ -19,13 +17,10 @@
 
 body {
     margin: 0;
-    font-family: "Inter", system-ui, -apple-system, sans-serif;
+    font-family: Inter, system-ui, -apple-system, sans-serif;
     background-color: var(--bg);
     color: var(--text-main);
-    min-height: 100vh;
 }
-
-/* ===== CENTER LAYOUT ===== */
 
 .page-center {
     min-height: 100vh;
@@ -36,59 +31,26 @@ body {
 
 .container {
     width: 100%;
-    max-width: 520px;
+    max-width: 900px;
     padding: 32px;
 }
 
-/* ===== HEADINGS ===== */
-
 h1 {
-    font-size: 28px;
+    font-size: 32px;
     font-weight: 600;
     margin-bottom: 24px;
-    text-align: center;
 }
-
-/* ===== BUTTONS ===== */
-
-.btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    padding: 16px;
-    border-radius: 16px;
-    border: none;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    text-decoration: none;
-    transition: all 0.15s ease;
-}
-
-.btn-primary {
-    background-color: var(--primary);
-    color: var(--accent-text);
-}
-
-.btn-primary:hover {
-    background-color: var(--primary-hover);
-}
-
-/* ===== CARD ===== */
 
 .card {
     background-color: var(--card);
-    border-radius: 24px;
+    border-radius: 20px;
     padding: 28px;
     border: 1px solid var(--border);
 }
 
-/* ===== FORM ===== */
-
 form {
     display: grid;
-    gap: 14px;
+    gap: 16px;
 }
 
 input,
@@ -97,61 +59,67 @@ select {
     padding: 14px 16px;
     border-radius: 14px;
     border: 1px solid var(--border);
-    font-size: 14px;
+    font-size: 15px;
     background-color: #fafafa;
-}
-
-input::placeholder {
-    color: var(--text-muted);
 }
 
 input:focus,
 select:focus {
     outline: none;
     border-color: var(--primary);
+    background-color: #ffffff;
 }
 
-/* ===== CAMERA UPLOAD ===== */
-
-.upload-box {
-    margin-top: 8px;
-    padding: 16px;
-    border-radius: 16px;
-    border: 2px dashed var(--border);
-    text-align: center;
-    color: var(--text-muted);
-    font-weight: 500;
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 20px;
+    border-radius: 14px;
+    border: none;
+    font-size: 15px;
+    font-weight: 600;
     cursor: pointer;
+    text-decoration: none;
+    transition: all 0.15s ease;
 }
 
-.upload-box:hover {
-    border-color: var(--primary);
-    color: var(--accent-text);
+.btn-primary {
+    background-color: var(--primary);
+    color: white;
 }
 
-/* ===== SEARCH ===== */
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+}
 
-.search {
-    width: 100%;
-    padding: 14px 16px;
-    border-radius: 16px;
-    border: 1px solid var(--border);
+.btn-danger {
+    background-color: transparent;
+    color: var(--danger);
+}
+
+.btn-danger:hover {
+    text-decoration: underline;
+}
+
+.actions {
+    display: flex;
+    gap: 12px;
     margin-bottom: 20px;
 }
-
-/* ===== TABLE ===== */
 
 table {
     width: 100%;
     border-collapse: collapse;
     background-color: var(--card);
-    border-radius: 24px;
+    border-radius: 20px;
     overflow: hidden;
     border: 1px solid var(--border);
 }
 
 th {
-    padding: 14px 16px;
+    text-align: left;
+    padding: 16px;
     font-size: 12px;
     text-transform: uppercase;
     letter-spacing: 0.08em;
@@ -162,18 +130,15 @@ th {
 td {
     padding: 16px;
     border-top: 1px solid var(--border);
+    font-size: 15px;
 }
 
 tr:hover {
-    background-color: #f9f8f6;
+    background-color: #f9fafb;
 }
 
-.delete {
-    color: var(--danger);
-    font-weight: 600;
-    text-decoration: none;
-}
-
-.delete:hover {
-    text-decoration: underline;
+.empty {
+    text-align: center;
+    color: var(--text-muted);
+    padding: 40px 0;
 }
