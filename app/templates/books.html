@@ -27,12 +27,12 @@
                 <tbody>
                     {% for b in books %}
                     <tr>
-                        <td>{{ b["title"] }}</td>
-                        <td>{{ b["author"] }}</td>
-                        <td>{{ b["genre"] }}</td>
-                        <td>{{ b["location"] }}</td>
+                        <td>{{ b[1] }}</td>
+                        <td>{{ b[2] }}</td>
+                        <td>{{ b[3] }}</td>
+                        <td>{{ b[4] }}</td>
                         <td>
-                            <form method="POST" action="/delete/{{ b['id'] }}">
+                            <form method="POST" action="/delete/{{ b[0] }}">
                                 <button class="btn btn-danger">Delete</button>
                             </form>
                         </td>
@@ -41,9 +41,7 @@
                 </tbody>
             </table>
             {% else %}
-                <div class="card empty">
-                    No books added yet
-                </div>
+                <div class="card empty">No books added yet</div>
             {% endif %}
         </div>
     </div>
