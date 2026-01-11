@@ -6,7 +6,7 @@ A modern, full-stack **Library Management System** built using **Flask** and **P
 
 ## 🚀 Live Demo
 
-🔗 **Live URL:** <YOUR_RENDER_URL_HERE>
+🔗 **Live URL:** (https://library-manager-0rlg.onrender.com/add)
 
 ---
 
